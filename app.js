@@ -12,17 +12,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use(cors());
 // app.use(indexRouter);
-
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
-});
 app.get('/api/haha', (req, res) => {
     res.send('收到哈哈请求！');
 });
 app.get('/api/hehe', (req, res) => {
     res.send('收到呵呵请求！');
 });
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  next(createError(404));
+});
+
 // error handler
 app.use(function (err, req, res) {
   res.locals.message = err.message;
